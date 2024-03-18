@@ -71,7 +71,7 @@ const NewQuest = (props) => {
       <h1 className="new-quest-heading">Preview</h1>
       <Preview></Preview>
       <form onSubmit={handleSubmit} className="quest-form">
-        Would you rather <br />
+        Would you rather
         <InputText
           className="w-full"
           name="optionOneText"
@@ -95,7 +95,6 @@ const NewQuest = (props) => {
             />
           )}
         <Button
-          data-testid="test-submit-button"
           disabled={disabled}
           className="w-full font-bold add-button p-button"
           label="Submit"

@@ -1,17 +1,17 @@
-import { connect } from "react-redux";
-import { handleLogin } from "../actions/shared";
 import { forIn } from "lodash";
-import { Dropdown } from "primereact/dropdown";
-import { useEffect, useState } from "react";
 import { Button } from "primereact/button";
-import { Password } from "primereact/password";
 import { Message } from "primereact/message";
-import "../styles/login.scss";
+import { InputText } from "primereact/inputtext";
+import { Password } from "primereact/password";
+import { useEffect, useState } from "react";
+import { connect } from "react-redux";
 import { _login } from "../_DATA";
+import { handleLogin } from "../actions/shared";
+import "../styles/login.scss";
 
 const Login = (props) => {
   const { users } = props;
-  const [selectedUser, setSelectedUser] = useState(null);
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [isDisable, setIsDisable] = useState(true);
@@ -22,7 +22,7 @@ const Login = (props) => {
   });
 
   const onLogin = () => {
-    _login(selectedUser.id, password)
+    _login(username, password)
       .then((user) => {
         setError(null);
         props.dispatch(handleLogin(user.id));
@@ -33,37 +33,30 @@ const Login = (props) => {
   };
 
   useEffect(() => {
-    setIsDisable(!password || password.length < 6);
-  }, [password, setIsDisable]);
+    setIsDisable(
+      !username || username.length < 3 || !password || password.length < 6
+    );
+  }, [username, password, setIsDisable]);
 
   return (
     <div className="login">
-      <Dropdown
-        value={selectedUser}
-        onChange={(e) => setSelectedUser(e.target.value)}
-        options={options}
-        optionLabel="name"
-        placeholder="Select a user"
-        className="w-full"
+      <InputText
+        className={"w-full md:w-14rem"}
+        name="username"
+        value={username}
+        placeholder="Username"
+        onChange={(e) => setUsername(e.target.value)}
       />
 
-      {selectedUser && (
-        <>
-          <Password
-            className={`w-full md:w-14rem ${error ? "p-invalid" : ""}`}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          {error && (
-            <Message className="w-full" severity="error" text={error} />
-          )}
-          <Message
-            className="w-full"
-            severity="success"
-            text={`Suggestion: ${selectedUser?.password}`}
-          />
-        </>
-      )}
+      <Password
+        label="Password"
+        className={`w-full md:w-14rem ${error ? "p-invalid" : ""}`}
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        placeholder="Password"
+        feedback={false}
+      />
+      {error && <Message className="w-full" severity="error" text={error} />}
 
       <Button
         className="w-full"
