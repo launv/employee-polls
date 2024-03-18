@@ -1,38 +1,53 @@
-.App {
-  text-align: center;
+.app {
+  @apply container max-h-full p-4 mx-auto h-[100vh] space-y-4;
+  @apply flex flex-col;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-content {
+  @apply flex-1 overflow-auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.profile {
+  @apply flex items-center justify-center space-x-2;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.home-splitter {
+  @apply h-full overflow-hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.splitter-panel {
+  @apply relative flex w-full max-h-full p-4 overflow-auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.splitter-panel .splitter-header {
+  @apply absolute px-4 mx-auto text-2xl rounded-md;
+  @apply text-nowrap bg-cyan-500 text-cyan-200;
+}
+
+.splitter-panel ul {
+  @apply w-full h-full pt-10 space-y-2 overflow-auto;
+}
+
+.poll-option {
+  @apply flex items-center;
+}
+
+.p-card {
+  @apply shadow-none;
+}
+
+.new-quest {
+  @apply w-1/2 p-4 mx-auto space-y-4 bg-slate-50 min-w-96;
+}
+
+.quest-form {
+  @apply space-y-8;
+}
+
+.quest-detail .p-buttonset .p-button {
+  @apply w-1/2 h-full;
+}
+
+.p-card-content {
+  @apply p-0 space-y-2;
 }

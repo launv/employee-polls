@@ -1,0 +1,11 @@
+.home {
+    @apply max-h-full;
+
+    .p-card {
+        @apply hover:bg-slate-50 focus:bg-slate-50;
+    }
+
+    .p-card-title {
+        @apply line-clamp-2;
+    }
+}
