@@ -41,7 +41,7 @@ const Login = (props) => {
   return (
     <div className="login">
       <InputText
-        className={"w-full md:w-14rem"}
+        className={"w-full"}
         name="username"
         value={username}
         placeholder="Username"
@@ -50,7 +50,7 @@ const Login = (props) => {
 
       <Password
         label="Password"
-        className={`w-full md:w-14rem ${error ? "p-invalid" : ""}`}
+        className={`w-full ${error ? "p-invalid" : ""}`}
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Password"

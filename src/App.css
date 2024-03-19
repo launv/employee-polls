@@ -1,5 +1,5 @@
 .app {
-  @apply container max-h-full p-4 mx-auto h-[100vh] space-y-4;
+  @apply max-h-full p-4 mx-auto h-[100vh] space-y-4 max-w-3xl;
   @apply flex flex-col;
 }
 
@@ -19,10 +19,6 @@
   @apply relative flex w-full max-h-full p-4 overflow-auto;
 }
 
-.splitter-panel .splitter-header {
-  @apply absolute px-4 mx-auto text-2xl rounded-md;
-  @apply text-nowrap bg-cyan-500 text-cyan-200;
-}
 
 .splitter-panel ul {
   @apply w-full h-full pt-10 space-y-2 overflow-auto;
@@ -37,17 +33,9 @@
 }
 
 .new-quest {
-  @apply w-1/2 p-4 mx-auto space-y-4 bg-slate-50 min-w-96;
+  @apply p-4 space-y-4 bg-slate-50 min-w-96;
 }
 
 .quest-form {
   @apply space-y-8;
-}
-
-.quest-detail .p-buttonset .p-button {
-  @apply w-1/2 h-full;
-}
-
-.p-card-content {
-  @apply p-0 space-y-2;
 }

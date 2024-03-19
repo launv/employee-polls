@@ -1,5 +1,5 @@
 import { forIn } from "lodash";
-import { Splitter, SplitterPanel } from "primereact/splitter";
+import { TabPanel, TabView } from "primereact/tabview";
 import { connect } from "react-redux";
 import "../styles/home.scss";
 import QuestList from "./QuestList";
@@ -23,17 +23,18 @@ const Home = (props) => {
   });
 
   return (
-    <Splitter className="home">
-      <SplitterPanel className="splitter-panel">
-        <h1 className="splitter-header">New Questions</h1>
-        {!!unansweredQuestions && <QuestList questions={unansweredQuestions} />}
-      </SplitterPanel>
-
-      <SplitterPanel className="splitter-panel">
-        <h1 className="splitter-header">Done</h1>
-        {!!answeredQuestions && <QuestList questions={answeredQuestions} />}
-      </SplitterPanel>
-    </Splitter>
+    <div className="card">
+      <TabView>
+        <TabPanel header="New Questions">
+          {!!unansweredQuestions && (
+            <QuestList questions={unansweredQuestions} />
+          )}
+        </TabPanel>
+        <TabPanel header="Done">
+          {!!answeredQuestions && <QuestList questions={answeredQuestions} />}
+        </TabPanel>
+      </TabView>
+    </div>
   );
 };
 

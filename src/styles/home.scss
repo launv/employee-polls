@@ -1,5 +1,6 @@
-.home {
-    @apply max-h-full;
+.p-tabview-panels {
+    @apply overflow-auto;
+    max-height: calc(100vh - 11rem);
 
     .p-card {
         @apply hover:bg-slate-50 focus:bg-slate-50;
@@ -7,5 +8,9 @@
 
     .p-card-title {
         @apply line-clamp-2;
+    }
+
+    .p-card-content {
+        @apply p-0;
     }
 }

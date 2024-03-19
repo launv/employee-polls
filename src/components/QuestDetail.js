@@ -55,7 +55,7 @@ const QuestDetail = (props) => {
 
   return (
     <div className="quest-detail">
-      <Card title={title} className="mx-auto md:w-2/3">
+      <Card title={title}>
         <Author name={name} date={date} avatar={avatar} />
 
         {/* Options */}
@@ -65,8 +65,8 @@ const QuestDetail = (props) => {
             const isChecked = answer === optionValue;
 
             return (
-              <div key={index}>
-                <div className="flex align-items-center">
+              <div key={index} className={index ? "!mt-8" : ""}>
+                <div className="flex my-4 align-items-center">
                   <RadioButton
                     inputId={index}
                     name="category"
@@ -89,7 +89,7 @@ const QuestDetail = (props) => {
         <Button
           disabled={idDisable}
           label="Submit"
-          className="w-full font-bold add-button p-button"
+          className="w-full mt-8 font-bold add-button p-button"
           onClick={onSubmit}
         ></Button>
       </Card>
